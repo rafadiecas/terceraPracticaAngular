@@ -1,0 +1,62 @@
+<div cdkDropListGroup class="columns is-multiline mx-2 mt-5">
+
+  <div class="column is-one-third">
+    <div class="box">
+      <h2 class="title is-4">Pendientes</h2>
+      <div cdkDropList id="pendiente" [cdkDropListData]="pendiente" (cdkDropListDropped)="drop($event)" class="vacia">
+        <mat-card *ngFor="let tarea of pendiente" cdkDrag class="mb-3">
+          <mat-card-content>
+            {{ tarea }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-one-third">
+    <div class="box">
+      <h2 class="title is-4">En progreso</h2>
+      <div cdkDropList id="progreso" [cdkDropListData]="progreso" (cdkDropListDropped)="drop($event)" class="vacia">
+        <mat-card *ngFor="let tarea of progreso" cdkDrag class="mb-3">
+          <mat-card-content>
+            {{ tarea }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-one-third">
+    <div class="box">
+      <h2 class="title is-4">Completada</h2>
+      <div cdkDropList id="completada" [cdkDropListData]="completada" (cdkDropListDropped)="drop($event)" class="vacia">
+        <mat-card *ngFor="let tarea of completada" cdkDrag class="mb-3">
+          <mat-card-content>
+            {{ tarea }}
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="column is-full">
+    <div cdkDropList id="zonaBorrado" [cdkDropListData]="borrado" (cdkDropListDropped)="borrar($event)" class="has-text-centered has-background-danger has-text-white p-6" style="border-radius: 15px; min-height: 100px;">
+      <p class="is-size-4 m-0">Borrar</p>
+    </div>
+  </div>
+
+  <div class="column is-half is-offset-one-quarter pt-2">
+    <mat-form-field style="width: 100%!important;">
+      <mat-label>Tarea</mat-label>
+      <input matInput type="text" [(ngModel)]="tarea">
+    </mat-form-field>
+  </div>
+  <div class="column is-full has-text-centered">
+    <div class="demo-button-container">
+      <button (click)="anyadirTarea()" class="button is-black">
+        Add data
+      </button>
+    </div>
+  </div>
+
+</div>
