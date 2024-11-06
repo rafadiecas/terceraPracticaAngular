@@ -1,0 +1,66 @@
+<div class="container my-5">
+  <div class="table-responsive">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="Nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Telefono">
+        <th mat-header-cell *matHeaderCellDef> Teléfono </th>
+        <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.mail}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element; let i = index">
+          <button (click)="editarContacto(i)" class="button is-small is-info">Editar</button>
+          <button (click)="eliminarContacto(i)" class="button is-small is-danger">Eliminar</button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  <div class="container">
+    <form [formGroup]="productoForm" (ngSubmit)="agregarContacto()">
+      <div class="columns">
+        <div class="column">
+          <label>
+            Nombre:
+            <input formControlName="nombre" type="text" class="input is-rounded" />
+          </label>
+        </div>
+        <div class="column">
+          <label>
+            Telefono:
+            <input formControlName="telefono" type="text" class="input is-rounded"/>
+          </label>
+        </div>
+        <div class="column">
+          <label>
+            Email:
+            <input formControlName="mail" type="text" class="input is-rounded"/>
+          </label>
+        </div>
+        <div class="column is-one-quarter has-text-centered-mobile mt-5">
+          <div class="demo-button-container">
+            <button (click)="reset()" class="button is-black">
+              Reset
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="column is-full has-text-centered">
+        <div class="demo-button-container">
+          <button type="submit" [disabled]="productoForm.invalid" class="button is-black">
+            Add data
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
