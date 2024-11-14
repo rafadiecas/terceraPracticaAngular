@@ -40,6 +40,10 @@ const ELEMENT_DATA:Producto[]=[
   templateUrl: './calculadora-compras.component.html',
   styleUrl: './calculadora-compras.component.css'
 })
+/**
+ * componente calculadora para calcular total de compras
+ *
+ */
 export class CalculadoraComprasComponent {
   displayedColumns: string[] = ['producto', 'cantidad', 'precio'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);

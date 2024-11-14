@@ -11,12 +11,13 @@ import {TareasComponent} from '../componentes/tareas/tareas.component';
 import {CalculadoraComprasComponent} from '../componentes/calculadora-compras/calculadora-compras.component';
 import {EncuestaComponent} from '../componentes/encuesta/encuesta.component';
 import {ContactosComponent} from '../componentes/contactos/contactos.component';
+import {DashboardComponent} from '../componentes/dashboard/dashboard.component';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, MatButton, MatIcon, MatFabButton, MatCard, MatCardContent, SistemaNotasComponent, GaleriaComponent, TareasComponent, CalculadoraComprasComponent, EncuestaComponent, ContactosComponent],
+  imports: [RouterOutlet, MatButton, MatIcon, MatFabButton, MatCard, MatCardContent, SistemaNotasComponent, GaleriaComponent, TareasComponent, CalculadoraComprasComponent, EncuestaComponent, ContactosComponent, DashboardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

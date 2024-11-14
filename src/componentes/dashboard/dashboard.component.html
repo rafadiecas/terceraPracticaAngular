@@ -1,0 +1,50 @@
+<div class="dashboard-container">
+  <mat-grid-list cols="3" rowHeight="1:1">
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Usuarios</mat-card-title>
+          <mat-card-subtitle>Número total de usuarios</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ numeroUsuarios }}</p>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Eventos Recientes</mat-card-title>
+          <mat-card-subtitle>Últimos eventos del sistema</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <ul>
+            <li *ngFor="let event of eventos">{{ event }}</li>
+          </ul>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Estadísticas</mat-card-title>
+          <mat-card-subtitle>Gráfico de visitas semanales</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <canvas baseChart
+                  [data]="barChartData"
+                  [type]="barChartType"
+                  [options]="barChartOptions">
+          </canvas>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <div class="update-button">
+    <button mat-raised-button color="primary" (click)="updateData()">Actualizar Datos</button>
+  </div>
+</div>
